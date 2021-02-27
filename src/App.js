@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import questions from "./data";
+import SingleQuestion from "./SingleQuestion";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <div className="container">
+        <h3 style={{ fontWeight: "bold" }}>
+          questions and answers related to programming
+        </h3>
+        <section>
+          {questions.map((item) => {
+            return <SingleQuestion key={item.id} {...item} />; //spreading the properties
+          })}
+        </section>
+      </div>
+    </main>
   );
-}
+};
 
 export default App;
